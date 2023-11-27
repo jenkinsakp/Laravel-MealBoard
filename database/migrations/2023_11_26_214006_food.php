@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('user_id')->references('id')->on('users');
             $table->string('name');
             $table->text('body');
-            $table->text('image');
+            $table->integer('status')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });
