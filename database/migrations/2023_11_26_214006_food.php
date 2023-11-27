@@ -13,26 +13,27 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('foods', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->foreignId('category_id')->references('id')->on('category');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->text('body');
+            $table->text('image');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {
+
         Schema::dropIfExists('food');
-        Schema::dropIfExists('menu');
-        Schema::dropIfExists('users');
+        Schema::table('food', function (Blueprint $table) {
+//            $table->dropForeign('foods_category_id_foreign');
+        });
     }
 };
