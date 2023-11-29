@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('food_id')->references('id')->on('foods');
             $table->timestamp('date');
+            $table->integer('status')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });
