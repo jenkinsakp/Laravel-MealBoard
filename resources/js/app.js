@@ -1,7 +1,14 @@
-import './bootstrap';
-import Vuesax from 'vuesax3'
+// import './bootstrap';
+// import '../css/app.css';
 
-import 'vuesax3/dist/vuesax.css'
+// VUESAX UI
+import Vuesax from 'vuesax3'
+// import 'vuesax3/dist/vuesax.css'
+
+// primevue UI
+import 'primevue/resources/themes/lara-light-green/theme.css'
+import 'primeicons/primeicons.css'
+import PrimeVue from 'primevue/config';
 
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
@@ -19,7 +26,8 @@ createInertiaApp({
             .use(plugin)
             .use(ZiggyVue, Ziggy)
             .use(Vuesax)
-                    .mount(el);
+            .use(PrimeVue)
+            .mount(el);
     },
     progress: {
         color: '#4B5563',
