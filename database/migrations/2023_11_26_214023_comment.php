@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+
         Schema::create('comment', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->foreignId('menu_id')->references('id')->on('menu');
@@ -24,6 +25,7 @@ return new class extends Migration
 
 
         });
+
     }
 
     /**
@@ -33,6 +35,8 @@ return new class extends Migration
      */
     public function down()
     {
+
         Schema::dropIfExists('menu');
+
     }
 };
