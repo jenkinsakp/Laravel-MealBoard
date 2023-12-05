@@ -14,7 +14,9 @@ return new class extends Migration
 
         Schema::create('menu', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->references('id')->on('users')
+                    ->onUpdate('cascade')
+                    ->onDelete('cascade');
             $table->foreignId('food_id')->references('id')->on('foods');
             $table->timestamp('date');
             $table->integer('status')->default(0);

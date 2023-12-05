@@ -7,6 +7,7 @@ import Vuesax from 'vuesax3'
 
 // primevue UI
 import 'primevue/resources/themes/lara-light-green/theme.css'
+
 import 'primeicons/primeicons.css'
 import PrimeVue from 'primevue/config';
 

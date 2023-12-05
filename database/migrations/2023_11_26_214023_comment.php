@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('comment', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreignId('menu_id')->references('id')->on('menu');
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('menu_id')->references('id')->on('menu')->onDelete('cascade');
+            $table->foreignId('user_id')->references('id')->on('users')->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->text('comment');
             $table->text('comment_type')->comment('check the type iof comment, could be anonymous, open to all e.t.c ');
             $table->softDeletes();
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menu');
+        Schema::dropIfExists('comment');
     }
 };
