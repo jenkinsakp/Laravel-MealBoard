@@ -43,8 +43,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function foods(): HasMany
+    public function food(): HasMany
     {
-        return $this->hasMany(foods::class);
+        return $this->hasMany(food::class);
+    }
+
+    public function menu(): HasMany
+    {
+        return $this->hasMany(menu::class);
+    }
+    public function comment(): HasMany
+    {
+        return $this->hasMany(comment::class);
     }
 }

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up()
     {
 
-        Schema::create('menu', function (Blueprint $table) {
+        Schema::create('menus', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->foreignId('user_id')->references('id')->on('users')
                     ->onUpdate('cascade')

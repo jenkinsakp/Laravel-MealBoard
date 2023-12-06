@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class foodsFactory extends Factory
+class foodFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,7 +19,7 @@ class foodsFactory extends Factory
     {
         return [
             'category_id' => fake()->randomElement([1, 2]),
-            //            'user_id' => fake()->randomElement($user),
+//            'user_id' => User::factory(),
             'name' => fake()->name(),
             'body' => fake()->sentence(),
             'status' => fake()->randomElement([0, 1, 0, 1, 0]),
