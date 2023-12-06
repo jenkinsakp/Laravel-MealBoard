@@ -13,12 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('comment', function (Blueprint $table) {
+
+        Schema::create('comments', function (Blueprint $table) {
+
             $table->bigIncrements('id');
-            $table->foreignId('menu_id')->references('id')->on('menu');
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('menu_id')->references('id')->on('menus')->onDelete('cascade');
+            $table->foreignId('user_id')->references('id')->on('users')->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->text('comment');
-            $table->text('comment_type')->comment('check the type iof comment, could be anonymous, open to all e.t.c ');
+            $table->text('comment_type')->comment('check the type if comment, could be anonymous, open to all e.t.c ');
             $table->softDeletes();
             $table->timestamps();
 
@@ -33,6 +36,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menu');
+
+        Schema::dropIfExists('comment');
+
     }
 };
