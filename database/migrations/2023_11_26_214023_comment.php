@@ -13,7 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
+
         Schema::create('comments', function (Blueprint $table) {
+
             $table->bigIncrements('id');
             $table->foreignId('menu_id')->references('id')->on('menus')->onDelete('cascade');
             $table->foreignId('user_id')->references('id')->on('users')->onUpdate('cascade')
@@ -34,6 +36,8 @@ return new class extends Migration
      */
     public function down()
     {
+
         Schema::dropIfExists('comment');
+
     }
 };
